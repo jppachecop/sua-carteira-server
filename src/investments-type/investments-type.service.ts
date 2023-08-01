@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { CreateInvestmentsTypeDto } from './dto/create-investments-type.dto';
 import { UpdateInvestmentsTypeDto } from './dto/update-investments-type.dto';
+import { InvestmentsType } from './interfaces/investments-type.interface';
 
 @Injectable()
 export class InvestmentsTypeService {
+  private investmentsType: InvestmentsType[] = [];
+
   create(createInvestmentsTypeDto: CreateInvestmentsTypeDto) {
+    this.investmentsType.push(createInvestmentsTypeDto);
+
     return 'This action adds a new investmentsType';
   }
 

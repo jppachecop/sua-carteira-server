@@ -1,11 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { InvestmentsTypeService } from './investments-type.service';
 import { CreateInvestmentsTypeDto } from './dto/create-investments-type.dto';
 import { UpdateInvestmentsTypeDto } from './dto/update-investments-type.dto';
 
 @Controller('investments-type')
 export class InvestmentsTypeController {
-  constructor(private readonly investmentsTypeService: InvestmentsTypeService) {}
+  constructor(private investmentsTypeService: InvestmentsTypeService) {}
 
   @Post()
   create(@Body() createInvestmentsTypeDto: CreateInvestmentsTypeDto) {
@@ -23,7 +31,10 @@ export class InvestmentsTypeController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateInvestmentsTypeDto: UpdateInvestmentsTypeDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateInvestmentsTypeDto: UpdateInvestmentsTypeDto,
+  ) {
     return this.investmentsTypeService.update(+id, updateInvestmentsTypeDto);
   }
 
